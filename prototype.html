@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype</title>
+</head>
+<body>
+  <script>
+    // Prototype muncul ketika constructor dipanggil
+    // Ketika membuat instance(constructor function) maka terdapat prototype didalamnya
+    // didalam prototype terdapat object
+    function Person(first, last) { 
+      this.nama1 = first
+      this.nama2 = last
+    }
+    
+    Person.prototype.sayBye = function () {
+      console.info('Halo bye'); //menambahkan property kedalam constructor prototype
+    }
+
+    Person.prototype.run = function () {
+      console.info(`${this.nama1} is running`); //menambahkan property kedalam constructor prototype
+    }
+
+    const ari = new Person("Ari", "Keriting");
+    const bimo = new Person("Aryo", "Bimo");
+
+    console.info(ari);
+    console.info(bimo);
+
+    ari.sayBye();
+    ari.run();
+    
+    
+  </script>
+</body>
+</html>

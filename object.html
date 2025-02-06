@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+<body>
+  <script>
+    // object biasa
+    const people = {
+      firstName: "Rahmat",
+      lastName: "Andyka"
+    }
+
+    // Ketika di oop menggunakan class sebagai cetakan object
+
+    // Membuat OOP di js sebelum ecmascript 6
+    function PremiumPeople() {
+      this.firstNama = "" //this untuk membuat property
+      this.lastNama = "" 
+    }
+    const budi = new PremiumPeople();
+    const roni = new PremiumPeople();
+    roni.firstNama = "Roni "; //untuk menambahkan ke property
+
+    function Person() {
+      this.sayHello = function (name) {
+        console.info(`Hello ${name}, my name is ${this.nama1}`) // menambahkan methode pada constructor function
+      }
+    }
+    const diki = new Person();
+    // diki.sayHello("Diki");
+    
+    function Person(first, last) { //menambahkan parameter di constructor function
+      this.nama1 = first
+      this.nama2 = last
+    }
+    const ari = new Person("Ari", "Keriting");
+
+    // constructor inheritance
+    function Employee(firstName, lastName, title) {
+      Person.call(this, firstName, lastName) //memanggil constructor employee
+      this.title = title
+    }
+    const bimo = new Employee("Aryo", "Bimo", "Developer");
+    
+  </script>
+</body>
+</html>
