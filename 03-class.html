@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class (Pembuatan Constructor Function pada ecmascript 6)</title>
+</head>
+<body>
+  
+  <script>
+    // Menggantikan Constructor function
+    class Person {
+      // contoh pembuatan class
+      constructor(name) { //menambahkan constructor pada class
+        this.name = name //menambahkan property pada class
+      }
+    }
+    const rahmat = new Person("Rahmat");
+
+    // Membuat method di class : method sebaiknya di tambahkan di prototype, bukan instance object
+    class PremiumPerson {
+      constructor(firstName, lastName) {
+        this.firstName = firstName
+        this.lastName = lastName
+      }
+
+      sayHello(name) { //method pada prototype
+        console.info(`Hay ${name}, my name is ${this.firstName} ${this.lastName}`)
+      }
+    }
+    const rahmatP = new PremiumPerson("Rahmat", "Andyka");
+    console.info(rahmatP);
+    rahmatP.sayHello("Joko");
+    
+    // class inheritance menggunakan kata kunci extends
+    class Employee {
+      constructor(firstName) { //constructor dapat digunakan di class manager
+        this.firstName = firstName;
+      }
+
+      sayHello(name) {
+        console.info(`Hello ${name}, my name is employee ${this.firstName}`);
+      }
+    }
+    class Manager extends Employee{ //menggunakan extend untuk memperoleh prototype, constructor employee
+      constructor(firstName, lastName) {
+        super(firstName); //super untuk mengambil constructor parent (employyee)
+        this.lastName = lastName;
+      }
+      // Sebenarnya method sayHello dapat dipanggil di manager pula
+      sayHello(name) {
+        console.info(`Hello ${name}, my name is manager ${this.firstName} ${this.lastName}`);
+      }
+    }
+    const bambang = new Employee("Bambang");
+    bambang.sayHello("Eko");
+
+    const rmt = new Manager("Ramadan", "Tarsiman");
+    rmt.sayHello("Eko");
+
+    // Super method
+    class Shape {
+      paint() {
+        console.info("Paint Shape")
+      }
+    }
+    class Circle extends Shape {
+      paint() {
+        super.paint(); //memanggil paint() method parent class
+        console.info("Paint Circle");
+      }
+    }
+    
+    const circle = new Circle();
+    circle.paint();
+  </script>
+</body>
+</html>
