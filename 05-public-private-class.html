@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public & Private CLass</title>
+</head>
+<body>
+  
+  <script>
+
+    // public bisa diakses dimana aja defaultnya
+    class Customer {
+      firstName; //ini merupakan public class field property
+      lastName;
+      balance = 0;
+
+      constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+
+      sayHello() {
+
+      }
+    }
+
+    const rahmat = new Customer("Rahmat", "Andyka");
+    console.info(rahmat);
+
+    // Private class hanya bisa diakses dalam class saja
+    class Counter {
+      // counter = 0;  Secara default ini bisa diakses dari luar field
+      #counter = 0;  //tambahkan # untuk menjadikan private
+
+      increment() {
+        this.#counter++;
+      }
+
+      decrement() {
+        this.#counter--;
+      }
+
+      get() {
+        return this.counter;
+      }
+    }
+
+    const counter = new Counter();
+    counter.increment();
+    counter.increment();
+    counter.increment();
+    counter.increment();
+    counter.increment();
+
+    console.info(counter.get());
+    console.info(counter);
+    
+
+    // Private method
+    class People {
+      say(name) {
+        if(name){
+          this.#sayWithName(name);
+        }else {
+          this.#sayWithoutName();
+        }
+      }
+
+      #sayWithoutName(){ //tidak  bisa diakses diluar field class People
+        console.info("Hello");
+      }
+
+      #sayWithName(name){
+        console.info(`Hello ${name}`);
+      }
+    }
+
+    const radit = new People();
+    radit.say("Radit");
+  </script>
+</body>
+</html>
