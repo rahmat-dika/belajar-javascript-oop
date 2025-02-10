@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operator Instance Of</title>
+</head>
+<body>
+  
+  <script>
+    // Berbeda dengan type of yang digunakan pada class pasti selalu menghasilkan object
+    class Employee {
+
+    }
+
+    class Manager extends Employee{ // InstanceOf digunakan pula pada class inheritance
+
+    }
+
+    const sapri = new Employee();
+    const ahmat = new Manager();
+
+    // True karena sapri merupakan employee dan ahmat merupakan manager
+    console.info(sapri instanceof Employee);
+    console.info(ahmat instanceof Manager);
+    // False
+    console.info(ahmat instanceof Employee);
+    console.info(sapri instanceof Manager);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Class & Method</title>
+</head>
+<body>
+  
+  <script>
+    // menambahkan properti biasa ke class
+    class Configuration1 {
+      name = "Belajar Javascript OOP";
+      version = 1.0;
+      author = "Rahmat Andyka";
+    }
+
+    const config = new Configuration1(); // menghasilkan config sebagai name dari fieldnya
+    console.info(config);
+
+    // menambahkan static untuk memakai configuration2 sebagai nama fieldnya
+    class Configuration2 {
+      static name = "Belajar Javascript OOP";
+      static version = 1.0;
+      static author = "Rahmat Andyka";
+    }
+    
+    const configg = new Configuration2();
+    console.info(configg);
+    console.info(Configuration2.name); //memanggil field static // seperti menjadikan variable global
+    Configuration2.author("Gento"); //Mengubah static field
+
+    // Static method
+    class MathUtil {
+      static sum(...numbers) {
+        let total = 0;
+        for (const number of numbers) {
+          total += number;
+        }
+        return total;
+      }
+    }
+
+    const result = MathUtil.sum(1,1,1,1,1,1);
+    console.info(result);
+  </script>
+</body>
+</html>
